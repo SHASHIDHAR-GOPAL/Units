@@ -1,16 +1,16 @@
 package com.company;
 
 enum Unit {
-    INCH(2.5), FEET(30.0), YARD(90), CENTIMETER(1);
+    INCH(1), FEET(12), YARD(36);
 
-    private final double conversionFactor;
+    private final long conversionFactor;
 
-    Unit(double conversionFactor) {
+    Unit(long conversionFactor) {
         this.conversionFactor = conversionFactor;
     }
 
 
-    double convertToOtherUnit(Unit unit, double magnitude) {
+    double convertToOtherUnit(Unit unit, long magnitude) {
         return magnitude * this.conversionFactor / unit.conversionFactor;
     }
 

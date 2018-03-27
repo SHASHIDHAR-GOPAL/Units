@@ -5,12 +5,24 @@ import java.util.Objects;
 //Understands length conversions
 public class Length {
 
-    private double magnitude;
+    private long magnitude;
     private Unit unit;
 
-    public Length(double magnitude, Unit unit) {
+    private Length(long magnitude, Unit unit) {
         this.magnitude = magnitude;
         this.unit = unit;
+    }
+
+    static Length feet(long value) {
+        return new Length(value, Unit.FEET);
+    }
+
+    static Length inch(long value) {
+        return new Length(value, Unit.INCH);
+    }
+
+    static Length yard(long value) {
+        return new Length(value, Unit.YARD);
     }
 
     @Override
@@ -38,4 +50,9 @@ public class Length {
         return Objects.hash(unit, magnitude);
     }
 
+    /*public Length add(Length that) {
+
+        double otherConvertedValue = that.unit.convertToOtherUnit(this.unit, that.magnitude);
+        return new Length(this.magnitude + otherConvertedValue, this.unit);
+    }*/
 }
